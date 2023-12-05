@@ -1,0 +1,67 @@
+*,
+*::before,
+*::after{
+    box-sizing: border-box;
+    margin: 0px;
+}
+
+body {
+    overflow: hidden;
+}
+
+.carou {
+    position: relative;
+    background-color: blue;
+    margin: 20vh 0vh;
+    width: 100vw;
+    height: 60vh;
+    display: grid;
+    grid-template-columns: 30vw 300px 30vw;
+    justify-content: space-between;
+    grid-template-areas: "l c r";
+}
+
+.nav {
+    position: relative;
+    z-index: 2;
+    background-color: rgba(0, 0, 0, 0.478);
+    width: 100%;
+}
+
+
+#left {
+    grid-area: l;
+}
+
+#right {
+    grid-area: r;
+}
+
+.container {
+    position: relative;
+    background-color: green;
+    grid-area: c;
+    overflow: visible;
+    z-index: 1;
+}
+
+.slider {
+    position: relative;
+    background-color: rgba(255, 0, 0, 0.33);
+    height: 100%;
+    width: fit-content;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    align-items: center;
+    gap: 40px;
+    /* padding: 0px 135px; */
+    top: 0px;
+    left: 0px;
+}
+
+.item {
+    position: relative;
+    height: 400px;
+    width: 300px;
+    background-color: pink;
+}
