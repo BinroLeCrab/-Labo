@@ -21,7 +21,12 @@ function run() {
         let l = window.getComputedStyle(document.querySelector(".slider"), null).left;
         l = parseInt(l.substring(0, l.length - 2));
 
-        if (l == 0) {
+        let arrivée = l + walkSlider;
+
+        console.log(l);
+
+        if (arrivée > 0 || l == 0) {
+            console.log("retour origine");
             slider.style.left = `-${slider.offsetWidth - Cards}px`;
         } else {
             slider.style.left = `${l + walkSlider}px`;
@@ -33,7 +38,15 @@ function run() {
         let l = window.getComputedStyle(document.querySelector(".slider"), null).left;
         l = parseInt(l.substring(0, l.length - 2));
 
-        if (l == -(slider.offsetWidth-Cards)) {
+        let max = - slider.offsetWidth + Cards;
+
+        let arrivée = l - walkSlider;
+
+        console.log(max);
+        console.log(l);
+
+        if (arrivée < max || l == max) {
+            console.log("retour droite");
             slider.style.left = `0px`;
         } else {
             slider.style.left = `${l - walkSlider}px`;

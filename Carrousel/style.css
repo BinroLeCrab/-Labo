@@ -5,20 +5,21 @@
     margin: 0px;
 }
 
-body {
-    overflow: hidden;
-}
-
 .carou {
+
+    --WidthCards : 500px;
+
     position: relative;
     background-color: blue;
     margin: 20vh 0vh;
     width: 100vw;
     height: 60vh;
     display: grid;
-    grid-template-columns: 30vw 40vw 30vw;
+    grid-template-columns: 1fr var(--WidthCards) 1fr;
     justify-content: space-between;
     grid-template-areas: "l c r";
+
+    overflow: hidden;
 }
 
 .nav {
@@ -62,6 +63,11 @@ body {
 .item {
     position: relative;
     height: 400px;
-    width: 40vw;
+    width: var(--WidthCards);
     background-color: pink;
+}
+
+.item:hover {
+    background-color: red;
+    scale: 1.1;
 }
