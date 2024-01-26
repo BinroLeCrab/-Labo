@@ -28,7 +28,10 @@ import * as THREE from 'three';
 //? --- Scene
 const scene = new THREE.Scene();
 scene.background = new THREE.Color(0X1e1e1e);
-scene.fog = new THREE.Fog(0X1e1e1e, 12, 25);
+scene.fog = new THREE.Fog(0X1e1e1e, 12, 22);
+
+console.log(scene.fog);
+console.log(scene.background);
 
 //? --- Cube
 const geometry = new THREE.BoxGeometry( 1, 0.5, 0.1 );
@@ -108,10 +111,23 @@ function render() {
             // c.position.z = camera.position.z;
             c.position.z = camera.position.z;
         } else {
-            c.position.z += 0.01 * vitesse;
+            if (pause == false) {
+                c.position.z += 0.01 * vitesse;
+            }
         }
         return c;
     })
+
+    
+    // if (vitesse < 0) {
+    //     scene.fog.color = new THREE.Color(0xF9FBFD);
+    //     scene.background = new THREE.Color(0xF9FBFD);
+    //     document.querySelector('h1').style.color = '#1e1e1e';
+    // } else { 
+    //     scene.fog.color = new THREE.Color(0x1e1e1e);
+    //     scene.background = new THREE.Color(0x1e1e1e);
+    //     document.querySelector('h1').style.color = '#FFFFFF';
+    // }
 
     renderer.render( scene, camera );
     requestAnimationFrame(render);
@@ -119,7 +135,8 @@ function render() {
 
 
 let pause = false;
-let Vit_pause = 1;
+// let surligne = document.querySelector('.surligne');
+// console.log(surligne);
 
 addEventListener('keydown', (e)=> {
     if (e.key == 'ArrowUp' || e.key == 'z') {
@@ -142,17 +159,14 @@ addEventListener('keydown', (e)=> {
         }
     } else if (e.key ==' ') {
         if (pause == false) {
-            Vit_pause = vitesse;
-            vitesse = 0;
             pause = true;
         } else {
-            vitesse = Vit_pause;
             pause = false;
         }
     } else if (e.key =='r') {
         vitesse = 1;
-        Vit_pause = 1;
     }
 })
+
 
 render();

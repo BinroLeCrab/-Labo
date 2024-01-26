@@ -20,13 +20,29 @@
                 transform: translate(-50%, -50%);
                 top: 50%;
                 left: 50%;
-                font-size: 3em;
+                font-size: 4em;
                 margin: 0px;
                 font-family: 'K2D', sans-serif;
                 font-weight: bolder;
-                color: #fff;
-                width: 100%;
+                color: #ffffff;
+                width: fit-content;
                 text-align: center;
+                mix-blend-mode: difference;
+                overflow: hidden;
+            }
+
+            .surligne {
+                display: block;
+                content: '';
+                height: 75%;
+                width: 100%;
+                position: absolute;
+                transform: translate(0, -50%);
+                top: 50%;
+                left: -100%;
+                background: #ED4D1D;
+                z-index: -1;
+                transition: 0.5s;
             }
         </style>
         <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -44,6 +60,6 @@
             }
         </script>
         <script type="module" src="app.js"></script>
-        <h1>Confettis !</h1>
+        <h1>Confettis <span class="surligne"></span></h1>
     </body>
 </html>
