@@ -7,7 +7,7 @@ const lightOn = (x, y) => {
     flashlight.style.left = x + 'px';
 };
 
-document.addEventListener('click', (e) => {
+document.addEventListener('touchmove', (e) => {
     console.log(e.clientX, e.clientY);
     lightOn(e.clientX, e.clientY);
 });
